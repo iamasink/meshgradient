@@ -1,3 +1,9 @@
+// options
+const mintransparency = 50
+const maxtransparency = 75
+const minsize = 75
+const maxsize = minsize
+
 function setGradientBackground(points, backgroundColor) {
     const width = window.innerWidth;
     const height = window.innerHeight;
@@ -10,9 +16,9 @@ function setGradientBackground(points, backgroundColor) {
         // }
 
 
-        const [x, dx, y, dy, L, C, H] = points[i];
+        let [x, dx, y, dy, L, C, H] = points[i];
 
-        background += `radial-gradient(at ${x * width}px ${y * height}px, oklch(0.80 0.4 ${H} / 50) 0px, transparent ${100}%), `;
+        background += `radial-gradient(circle ${width / 3}px at ${x * width}px ${y * height}px, oklch(0.80 0.4 ${H} / ${maxtransparency - ((i / points.length) * (maxtransparency - mintransparency))}%) 0px, transparent ${100}%), `;
 
         points[i][0] += points[i][1];
         points[i][2] += points[i][3];
@@ -24,14 +30,13 @@ function setGradientBackground(points, backgroundColor) {
 
         //     }
         // }
-
         if (points[i][0] < 0 || points[i][0] > 1) {
             points[i][1] *= -1;
-            points[i][3] = (Math.random() - 0.5) * 0.005;
+            points[i][3] += (Math.random() - 0.5) * 0.002;
         }
         if (points[i][2] < 0 || points[i][2] > 1) {
             points[i][3] *= -1;
-            points[i][1] = (Math.random() - 0.5) * 0.005;
+            points[i][1] += (Math.random() - 0.5) * 0.002;
         }
         // points[i][1] += -0.000025 + (Math.random() * 0.00005)
         // points[i][3] += -0.000025 + (Math.random() * 0.00005)
