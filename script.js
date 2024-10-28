@@ -49,8 +49,8 @@ function initializeAndStart() {
     const backgroundColor = [0.75,
         ((Math.random()) * 0.4),
         (Math.random()) * 360,
-        Math.random() / 100]
-    const pointsLength = 5; // number of points
+        Math.random() / 10]
+    const pointsLength = 7; // number of points
     for (let i = 0; i < pointsLength; i++) {
         const x = Math.random();
         const dx = (Math.random() - 0.5) * 0.005;
