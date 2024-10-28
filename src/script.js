@@ -12,6 +12,13 @@ function setGradientBackground(points, backgroundColor) {
         points[i][2] += points[i][3];
         points[i][6] += points[i][7];
 
+        // for (let j = 0, len = points.length; j < len; j++) {
+        //     if (j==i) continue
+        //     if (calcDist(x,points[j][0]) <= 500) {
+
+        //     }
+        // }
+
         if (points[i][0] < 0 || points[i][0] > 1) {
             points[i][1] *= -1;
             points[i][3] = (Math.random() - 0.5) * 0.005;
@@ -19,7 +26,6 @@ function setGradientBackground(points, backgroundColor) {
         if (points[i][2] < 0 || points[i][2] > 1) {
             points[i][3] *= -1;
             points[i][1] = (Math.random() - 0.5) * 0.005;
-
         }
         // points[i][1] += -0.000025 + (Math.random() * 0.00005)
         // points[i][3] += -0.000025 + (Math.random() * 0.00005)
@@ -67,3 +73,9 @@ function initializeAndStart() {
 document.addEventListener("DOMContentLoaded", () => {
     initializeAndStart();
 });
+
+
+
+function calcDist(x1, y1, x2, y2) {
+    return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+}
