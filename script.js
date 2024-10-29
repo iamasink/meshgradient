@@ -15,7 +15,6 @@ function setGradientBackground(points, backgroundColor) {
 
         // }
 
-
         let [x, dx, y, dy, L, C, H] = points[i];
 
         background += `radial-gradient(circle ${width / 3}px at ${x * width}px ${y * height}px, oklch(0.80 0.4 ${H} / ${maxtransparency - ((i / points.length) * (maxtransparency - mintransparency))}%) 0px, transparent ${100}%), `;
@@ -38,10 +37,6 @@ function setGradientBackground(points, backgroundColor) {
             points[i][3] *= -1;
             points[i][1] += (Math.random() - 0.5) * 0.002;
         }
-        // points[i][1] += -0.000025 + (Math.random() * 0.00005)
-        // points[i][3] += -0.000025 + (Math.random() * 0.00005)
-        // console.log(points[i][3])
-        // if (points[i][6] < 0 || points[i][6] > 1) points[i][7] *= -1;
     }
 
 
